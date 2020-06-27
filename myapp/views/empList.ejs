@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="container">
+        <h3 class="mb-4 mt-5"><%= title %></h3>
+        <div class="alert alert-success" role="alert">
+          <strong>Success!</strong><%= success%>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Etype</th>
+              <th scope="col">Hourlyrate</th>
+              <th scope="col">TotalHour</th>
+              <th scope="col">Total</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% records.forEach(function(obj){ %>
+              <tr>
+                  <td><%= obj.name %></td>
+                  <td><%= obj.email %></td>
+                  <td><%= obj.etype %></td>
+                  <td><%= obj.hourlyrate %></td>
+                  <td><%= obj.totalHour %></td>
+                  <td><%= obj.total %></td>
+                  <td><a href="/edit/<%= obj._id %>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a></td>
+                  <td><a href="/delete/<%= obj._id %>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                </tr>
+                <% }) %>
+          </tbody>
+        </table>
+        
+    </div>
+  </body>
+</html>
